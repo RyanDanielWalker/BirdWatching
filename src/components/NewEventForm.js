@@ -1,30 +1,20 @@
 import React from "react";
 import { v4 } from 'uuid';
 import PropTypes from 'prop-types';
+import ReusableForm from "./ReusableForm";
 
 function NewEventForm(props) {
 
-  function handleNewEventFromSubmission(event) {
+  function handleNewEventFormSubmission(event) {
     event.preventDefault();
     props.onNewEventCreation({ name: event.target.name.value, location: event.target.location.value, date: event.target.date.value, id: v4() });
   }
 
   return (
     <React.Fragment>
-      <form onSubmit={handleNewEventFormSubmission}>
-        <input
-          type='text'
-          name='name'
-          placeholder='Bird Name' />
-        <input
-          type='text'
-          name='location'
-          placeholder='Location' />
-        <input
-          name='date'
-          placeholder='Date' />
-        <button type='submit'>Submit</button>
-      </form>
+      <ReusableForm
+        formSubmissionHandler={handleNewEventFormSubmission}
+        buttonText="Submit" />
     </React.Fragment>
   );
 }
