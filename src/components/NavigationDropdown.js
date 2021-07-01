@@ -5,8 +5,8 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 const NavigationDropdown = () => {
   return (
     <DropdownButton id="navigation-dropdown" title="Navigation">
-      {navigationItems.map((item) => (
-        <Dropdown.Item href="#">{item}</Dropdown.Item>
+      {navigationItems.map((item, index) => (
+        <Dropdown.Item href="#" key={index}>{item}</Dropdown.Item>
       ))}
     </DropdownButton>
   )
